@@ -112,6 +112,9 @@ input:focus {
 .card button {
   margin-top: 0.5rem;
 }
+.delete {
+  cursor: pointer
+}
 
 @media (min-width: 768px) {
   .cards {
