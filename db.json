@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Aloe",
       "image": "./images/aloe.jpg",
-      "price": "16.34"
+      "price": "12.99"
     },
     {
       "id": 2,
@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Epiphyllum",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Epiphyllum_pumilum286970600.jpg/1200px-Epiphyllum_pumilum286970600.jpg",
+      "price": "999.99",
+      "id": 8
     }
   ]
 }

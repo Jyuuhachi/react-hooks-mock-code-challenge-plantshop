@@ -18,15 +18,19 @@ function App() {
   })
   .then(response=>response.json())
   .then(data => {
-    setPlants([...plants, data])
+    const updatedList = [...plants, data]
+    setPlants(updatedList)
+    changedPlants(updatedList)
   }
   )
+  e.target.reset()
   }
 
   function filterPlants (e) {
     const tempDisplay = plants.filter(plant => {
       let caseCheck = plant.name.toLowerCase()
-      if (caseCheck.includes(e.target.value)) {
+      let caseCompare = e.target.value.toLowerCase()
+      if (caseCheck.includes(caseCompare)) {
         return true
       }
       else {
@@ -75,6 +79,8 @@ function App() {
   }
 
   function editPrice(plant) {
+    let editedPosition
+    let i = 0
     let newPrice = window.prompt("Enter new price")
     if (newPrice !== null) {
       fetch(`${targetURL}/${plant.id}`, {method: "PATCH",
@@ -85,15 +91,17 @@ function App() {
     })
     .then(response=>response.json())
     .then(updatedPlant => {
-      let newPlantList = plants.filter(item => {
+      let newPlantList = plants
+      newPlantList.forEach(item => {
         if (item.id === updatedPlant.id) {
-          return false
+          editedPosition = i
+          i++
         }
         else {
-          return true
+          i++
         }
       })
-      newPlantList.push(updatedPlant)
+      newPlantList[editedPosition] = updatedPlant
       setPlants(newPlantList)
       changedPlants(newPlantList)
     })
